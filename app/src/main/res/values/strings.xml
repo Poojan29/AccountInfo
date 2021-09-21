@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">AngelBank</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_customer">Add Customer</string>
+    <string name="poojan">Poojan</string>
+    <string name="go_to_home">Go to Home</string>
+    <string name="success">Success</string>
+    <string name="transaction_description">Transaction Description</string>
+    <string name="success_image">Success Image</string>
+    <string name="to_account_number">To Account Number</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="check_validity">Check Validity</string>
+    <string name="transfer">Transfer</string>
+    <string name="name">Name</string>
+    <string name="account_number">Account Number</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="confirm_customer">Confirm Customer</string>
+    <string name="enter_your_total_money">Enter your total money</string>
+    <string name="settings">Settings</string>
+    <string name="account_not_found">Account not found \nPlease try again.</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="black_variant">#1F1F1F</color>
+    <color name="teal">#39B5BE </color>
+    <color name="teal_variant">#257A81 </color>
+    <color name="olive">#998045 </color>
+    <color name="olive_variant">#5F572F </color>
+    <color name="cyan_900">#173A43</color>
+    <color name="cyan_700">#00838F</color>
+
+    <attr name="customerName" format="reference|color"/>
+    <attr name="buttonText" format="reference|color"/>
+</resources>

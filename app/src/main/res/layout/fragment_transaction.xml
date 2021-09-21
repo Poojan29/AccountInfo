@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.TransactionFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessLeaf">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/account_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="50dp"
+            android:hint="@string/to_account_number"
+            android:textColorHint="?attr/colorPrimary"
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/account_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:maxLength="8"
+                android:textColor="?attr/colorOnPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/money_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/account_layout"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="50dp"
+            android:hint="@string/enter_amount"
+            android:textColorHint="?attr/colorPrimary"
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/money"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="numberDecimal"
+                android:textColor="?attr/colorOnPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/validity_button"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/money_layout"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:drawableLeft="@drawable/ic_baseline_done_24"
+            android:text="@string/check_validity" />
+
+        <LinearLayout
+            android:id="@+id/account_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/validity_button"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="30dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/HeadingText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
+
+            <TextView
+                android:id="@+id/name_of_customer"
+                style="@style/HeadingText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
+
+            <TextView
+                style="@style/HeadingText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/account_number" />
+
+            <TextView
+                android:id="@+id/account_number_of_customer"
+                style="@style/HeadingText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_number" />
+
+            <TextView
+                style="@style/HeadingText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/bank_name" />
+
+            <TextView
+                android:id="@+id/bank_name_of_customer"
+                style="@style/HeadingText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bank_name" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/account_not_found"
+            style="@style/HeadingText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/validity_button"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/account_not_found"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/transferButton"
+            style="@style/ButtonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/transfer"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+</FrameLayout>
