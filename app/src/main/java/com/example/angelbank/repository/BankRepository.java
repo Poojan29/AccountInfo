@@ -16,6 +16,8 @@ public class BankRepository {
     private final BankDao bankDao;
     private final LiveData<List<BankTable>> allCustomer;
     private BankTable bankTable;
+    private boolean isCustomerAvailable;
+    private long senderTotalBalance;
 
     public BankRepository(Application application) {
         BankDatabase bankDatabase = BankDatabase.getInstance(application);
@@ -45,6 +47,38 @@ public class BankRepository {
         BankDatabase.databaseWriteExecutor.execute(() -> {
             bankDao.deleteCustomer(bankTable);
         });
+    }
+
+    public void deleteAllData(){
+        BankDatabase.databaseWriteExecutor.execute(() -> {
+            bankDao.deleteAllData();
+        });
+    }
+
+    public boolean isCustomerAvailable(String accountNumber){
+        BankDatabase.databaseWriteExecutor.execute(() -> {
+            isCustomerAvailable = bankDao.isCustomerAvailable(accountNumber);
+        });
+        return isCustomerAvailable;
+    }
+
+    public void updateReceiverCustomerMoney(long receiverMoney, String receiverAccountNumber){
+        BankDatabase.databaseWriteExecutor.execute(() -> {
+            bankDao.receiverAccount(receiverMoney, receiverAccountNumber);
+        });
+    }
+
+    public void updateSenderCustomerMoney(long sentMoney, String senderAccountNumber){
+        BankDatabase.databaseWriteExecutor.execute(() -> {
+            bankDao.senderAccount(sentMoney, senderAccountNumber);
+        });
+    }
+
+    public long getSenderTotalBalance(String senderAccountNumber){
+        BankDatabase.databaseWriteExecutor.execute(() -> {
+            bankDao.getSenderTotalBalance(senderAccountNumber);
+        });
+        return senderTotalBalance;
     }
 
 }

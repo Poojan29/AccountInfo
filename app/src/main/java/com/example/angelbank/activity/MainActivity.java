@@ -2,6 +2,7 @@ package com.example.angelbank.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -13,6 +14,9 @@ import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.angelbank.R;
+import com.example.angelbank.database.BankDatabase;
+import com.example.angelbank.database.dao.BankDao;
+import com.example.angelbank.viewmodel.BankViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     NavController navController;
     ExtendedFloatingActionButton addCustomer;
     MaterialToolbar materialToolbar;
+    BankViewModel bankViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         materialToolbar = findViewById(R.id.top_AppBar);
 
         setSupportActionBar(materialToolbar);
+
+        bankViewModel = new ViewModelProvider(this).get(BankViewModel.class);
 
         navController = NavHostFragment.findNavController(Objects.requireNonNull(getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment)));
 
@@ -52,8 +59,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         materialToolbar.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == R.id.setting){
-                navController.navigate(R.id.action_homeFragment_to_settingsFragment);
+            switch (item.getItemId()){
+                case R.id.setting:
+                    navController.navigate(R.id.action_homeFragment_to_settingsFragment);
+                    break;
+                case R.id.delete:
+                    bankViewModel.deleteAllData();
+                    break;
+                default:
+                    break;
             }
             return false;
         });

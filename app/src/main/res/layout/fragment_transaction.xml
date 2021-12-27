@@ -55,22 +55,41 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/validity_button"
-            style="@style/ButtonText"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/money_layout"
-            android:layout_marginStart="40dp"
+            android:weightSum="2"
             android:layout_marginTop="30dp"
-            android:drawableLeft="@drawable/ic_baseline_done_24"
-            android:text="@string/check_validity" />
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/validity_button"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_done_24"
+                android:text="@string/check_validity" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/check_my_balance"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:layout_height="wrap_content"
+                android:text="@string/check_my_balance" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/account_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/validity_button"
+            android:layout_below="@id/buttons"
             android:layout_marginHorizontal="40dp"
             android:layout_marginVertical="30dp"
             android:orientation="vertical"
@@ -125,7 +144,7 @@
             style="@style/HeadingText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/validity_button"
+            android:layout_below="@id/buttons"
             android:layout_marginHorizontal="50dp"
             android:layout_marginTop="50dp"
             android:text="@string/account_not_found"

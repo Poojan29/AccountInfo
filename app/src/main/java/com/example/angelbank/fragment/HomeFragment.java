@@ -21,6 +21,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.angelbank.R;
 import com.example.angelbank.adapter.CustomerAdapter;
 import com.example.angelbank.datamodel.BankTable;
+import com.example.angelbank.util.Constants;
 import com.example.angelbank.viewmodel.BankViewModel;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -72,8 +73,14 @@ public class HomeFragment extends Fragment {
         customerAdapter.setOnItemClickListener(new CustomerAdapter.onItemClickListener() {
             @Override
             public void onItemClick(BankTable bankTable) {
-                Toast.makeText(getContext(), bankTable.getName(), Toast.LENGTH_SHORT).show();
-                navController.navigate(R.id.action_homeFragment_to_transactionFragment);
+
+                String fromAccountNumber = bankTable.getAccount();
+
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.FROM_ACCOUNT_NUMBER, fromAccountNumber);
+
+//                Toast.makeText(getContext(), bankTable.getName(), Toast.LENGTH_SHORT).show();
+                navController.navigate(R.id.action_homeFragment_to_transactionFragment, bundle);
             }
         });
 

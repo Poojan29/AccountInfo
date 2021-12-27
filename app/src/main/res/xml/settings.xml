@@ -5,8 +5,8 @@
         android:defaultValue="false"
         android:icon="@drawable/ic_baseline_dark_mode_24"
         android:key="DisplayMode"
-        android:summaryOff="Dark mode is disable"
-        android:summaryOn="Dark mode is enable"
+        android:summaryOff="Turn on to enable dark mode"
+        android:summaryOn="Turn off to enable light mode"
         android:title="Dark Mode" />
 
 </PreferenceScreen>
